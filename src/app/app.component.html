@@ -1,8 +1,9 @@
-<div class="my-group">
+<div class="cleaning-group">
   <div>
-    <div *ngFor='let date of dates' class='pop'>{{date}}</div>
+    <div *ngFor='let date of dates' class='cleaning-box'>{{date}}</div>
   </div>
-  <div cdkDropList (cdkDropListDropped)='drop($event)'>
-    <div *ngFor='let user of users' class='pop' cdkDrag>{{user}}</div>
+  <div class="example-list" cdkDropList (cdkDropListDropped)='drop($event)'>
+    <div *ngFor='let user of users' class='cleaning-box' cdkDrag>{{user}}</div>
   </div>
 </div>
+  
