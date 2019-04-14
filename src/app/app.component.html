@@ -1,12 +1,8 @@
-<mat-grid-list cols="2" rowHeight="100px">
-    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
-      {{tile.text}}
-    </mat-grid-tile>
-  </mat-grid-list>
-  
-  <span cdkDropList (cdkDropListDropped)='drop($event)'>
-    <div *ngFor='let user of users' class='pop' cdkDrag>{{user}}</div>
-  </span>
-  <span>
+<div class="my-group">
+  <div>
     <div *ngFor='let date of dates' class='pop'>{{date}}</div>
-  </span>
+  </div>
+  <div cdkDropList (cdkDropListDropped)='drop($event)'>
+    <div *ngFor='let user of users' class='pop' cdkDrag>{{user}}</div>
+  </div>
+</div>

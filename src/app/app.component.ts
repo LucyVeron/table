@@ -25,10 +25,7 @@ export class AppComponent {
     'Tiwa Savage',
     'Blaqbonez',
     'Banky W',
-    'Yemi Alade',
-    'Perruzi',
-    'Seyi Shay',
-    'Teni'
+    'Yemi Alade'
   ];
 
   dates = [
