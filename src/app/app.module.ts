@@ -1,6 +1,6 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatGridListModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -14,8 +14,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    DragDropModule,
-    MatGridListModule
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

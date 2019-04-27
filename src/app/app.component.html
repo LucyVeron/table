@@ -1,9 +1,18 @@
-<div class="cleaning-group">
-  <div>
-    <div *ngFor='let date of dates' class='cleaning-box'>{{date}}</div>
-  </div>
-  <div class="example-list" cdkDropList (cdkDropListDropped)='drop($event)'>
-    <div *ngFor='let user of users' class='cleaning-box' cdkDrag>{{user}}</div>
+<div class="example-container">
+  <h2>Nutzer</h2>
+  <div cdkDropList #userList="cdkDropList" [cdkDropListData]="users" [cdkDropListConnectedTo]="[weekList]" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of users" cdkDrag>{{item}}</div>
   </div>
 </div>
-  
+
+<div class="example-container">
+  <h2>Woche</h2>
+  <div class="example-container">
+    <div *ngFor='let date of dates' class='cleaning-box'>{{date}}</div>
+  </div>
+  <div class="example-container">
+    <div cdkDropList #weekList="cdkDropList" [cdkDropListData]="slots" [cdkDropListConnectedTo]="[userList]" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of slots" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+</div>

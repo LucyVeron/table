@@ -1,12 +1,5 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -14,19 +7,6 @@ export interface Tile {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  users = [
-    'Davido',
-    'Wizkid',
-    'Burna Boy',
-    'Kiss Daniel',
-    'Mayorkun',
-    'Mr. Eazi',
-    'Tiwa Savage',
-    'Blaqbonez',
-    'Banky W',
-    'Yemi Alade'
-  ];
 
   dates = [
     'KW1',
@@ -41,12 +21,30 @@ export class AppComponent {
     'KW10',
   ];
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+  slots = [];
+
+  users = [
+    'Davido',
+    'Wizkid',
+    'Burna Boy',
+    'Kiss Daniel',
+    'Mayorkun',
+    'Mr. Eazi',
+    'Tiwa Savage',
+    'Blaqbonez',
+    'Banky W',
+    'Yemi Alade'
   ];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.users, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 }
